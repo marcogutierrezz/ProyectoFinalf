@@ -1,0 +1,399 @@
+
+/* Paleta oficial Barça */
+:root {
+    --barca-blue: #004D98;
+    --barca-red: #A50044;
+    --barca-yellow: #EDBB00;
+    --barca-dark-blue: #002D62;
+    --barca-light-blue: #0066CC;
+    --white: #FFFFFF;
+    --light-gray: #F5F5F5;
+    --dark-gray: #333333;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--barca-dark-blue);
+    color: var(--white);
+    font-family: 'Arial', sans-serif;
+}
+
+#superior {
+    background-color: var(--barca-blue);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#encabezado {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+#logo {
+    text-align: center;
+    padding: 2rem 0;
+    background: linear-gradient(90deg, var(--barca-red) 0%, var(--barca-blue) 50%, var(--barca-red) 100%);
+    margin-bottom: 0;
+    border-bottom: 4px solid var(--barca-yellow);
+}
+
+#logo h1 {
+    color: var(--white);
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+nav {
+    background: linear-gradient(90deg, var(--barca-red) 0%, var(--barca-blue) 100%);
+    border-radius: 0 0 20px 20px;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1200px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav li {
+    margin: 0;
+    flex: 1;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+nav li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 25%;
+    height: 50%;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--barca-yellow), transparent);
+}
+
+nav li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+nav a {
+    display: block;
+    color: var(--white);
+    text-decoration: none;
+    padding: 1.5rem 2rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    background: var(--barca-yellow);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover::before {
+    width: 80%;
+}
+
+nav a:hover {
+    color: var(--barca-yellow);
+    text-shadow: 0 0 10px rgba(237, 187, 0, 0.5);
+}
+
+/* Estilos específicos para cada enlace */
+#inicio:hover {
+    background: linear-gradient(135deg, var(--barca-red), transparent);
+}
+
+#noticias:hover {
+    background: linear-gradient(135deg, var(--barca-blue), transparent);
+}
+
+#plantilla:hover {
+    background: linear-gradient(135deg, var(--barca-yellow), transparent);
+    color: var(--dark-gray) !important;
+}
+
+#calendario:hover {
+    background: linear-gradient(135deg, var(--barca-light-blue), transparent);
+}
+
+#historia:hover {
+    background: linear-gradient(135deg, var(--barca-dark-blue), transparent);
+}
+
+nav a:active {
+    background: var(--barca-yellow);
+    color: var(--dark-gray);
+}
+
+#imgDesc {
+    background: linear-gradient(135deg, #142E61 0%, #0B1D51 100%);
+    padding: 3rem;
+    margin-top: 0;
+    border-radius: 0 0 25px 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#imgDesc img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    border: 4px solid var(--barca-blue);
+    transition: all 0.4s ease;
+}
+
+#imgDesc img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+#description {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #142E61 0%, #0B1D51 100%);
+    border-radius: 15px;
+    color: var(--white);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--barca-yellow);
+}
+
+#description p {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    font-weight: 600;
+}
+
+#contenido {
+    padding: 3rem;
+    background-color: var(--barca-blue);
+    min-height: 80vh;
+}
+
+.categoria-titulo {
+    text-align: center;
+    color: var(--light-gray);
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    font-size: 2.5rem;
+    margin: 3rem 0 2rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 4px solid var(--barca-yellow);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    width: 100%;
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+#galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    justify-items: center;
+    align-items: start;
+}
+
+/* Tarjeta base*/
+.plan {
+    background: #142E61;
+    border: 3px solid var(--barca-red);
+    color: #FFFFFF;
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    padding: 1.5rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    height: 480px;
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    justify-self: center;
+}
+
+.plan:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+    height: 620px;
+    border-color: var(--barca-yellow);
+    z-index: 10;
+}
+
+.plan img {
+    width: 100%;
+    height: 290px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+    border: 2px solid var(--barca-blue);
+}
+
+.plan:hover img {
+    transform: scale(1.05);
+}
+
+.dorsal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--barca-red);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: 2px solid var(--white);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.plan > p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--barca-yellow);
+    margin: 1rem 0;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Info extra inicialmente oculta */
+.info-extra {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+    font-size: 1rem;
+    text-align: left;
+    margin-top: 1rem;
+    padding: 0 0.5rem;
+}
+
+/* Mostrar info al hover */
+.plan:hover .info-extra {
+    opacity: 1;
+    max-height: 250px;
+}
+
+.info-extra p {
+    margin: 0.6rem 0;
+    line-height: 1.5;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    font-size: 1rem;
+}
+
+.info-extra p:last-child {
+    border-bottom: none;
+}
+
+.info-extra strong {
+    color: var(--barca-red);
+    font-weight: 700;
+}
+
+/* Efecto de brillo en las tarjetas */
+.plan::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient( 45deg, transparent, rgba(255, 255, 255, 0.1), transparent );
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.plan:hover::after {
+    opacity: 1;
+    transform: rotate(45deg) translate(20%, 20%);
+}
+
+footer {
+    background: linear-gradient(135deg, var(--barca-blue) 0%, var(--barca-dark-blue) 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    border-top: 4px solid var(--barca-yellow);
+}
+
+footer p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+#galeria > .categoria-titulo {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin: 4rem 0 2rem 0;
+}
+
+#galeria > .categoria-titulo:first-child {
+    margin-top: 2rem;
+}
+
+#galeria > .plan {
+    margin: 0 auto;
+}
+
+footer {
+    background-color: #A50044;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    border-top: 3px solid #EDBB00;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 16px;
+    border: 1px solid white;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    background-color: #EDBB00;
+    border-color: #EDBB00;
+    color: #004D98;
+}

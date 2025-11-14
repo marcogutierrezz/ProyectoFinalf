@@ -1,0 +1,201 @@
+:root {
+    /* Variables de color de tu equipo */
+    --barca-red: #A50044; /* Rojo/Granate */
+    --barca-yellow: #FFC000; /* Amarillo/Dorado */
+    --barca-blue: #004D98; /* Azul Medio */
+    --barca-dark-blue: #0F1C4F; /* Azul Oscuro (Fondo) */
+    --white: #FFFFFF;
+}
+
+body {
+    background-color: var(--barca-dark-blue);
+    color: var(--white);
+    font-family: 'Arial', sans-serif; 
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal de la página */
+.integrantes-seccion {
+    width: 100%;
+    padding: 50px 0;
+}
+
+/* Título de la sección */
+.seccion-titulo {
+    text-align: center;
+    padding: 20px 0 40px;
+    font-size: 2.5em;
+    color: var(--barca-yellow);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* 1. GRID DE INTEGRANTES */
+
+.integrantes-grid {
+    display: grid;
+    /* Grid responsive: 3 columnas en escritorio, adaptable */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+    padding: 0 40px;
+    max-width: 1400px; /* Ancho máximo para el contenido */
+    margin: 0 auto;
+    justify-content: center; /* Centra las tarjetas si hay menos de 3 */
+}
+
+/* 2. ESTILO DE LA TARJETA (.plan) */
+
+/* Tarjeta base */
+.plan {
+    background: #142E61;
+    border: 3px solid var(--barca-red); /* Borde por defecto: Rojo */
+    color: #FFFFFF;
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    padding: 1.5rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    height: 480px; /* Altura inicial fija */
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    justify-self: center;
+}
+
+/* Estilos para alternar el color del borde inicial (data-color="yellow" en HTML) */
+.plan[data-color="yellow"] {
+    border-color: var(--barca-yellow);
+}
+
+/* Efecto al pasar el mouse (hover) */
+.plan:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.45);
+    height: 620px; /* Altura expandida para mostrar la info-extra */
+    border-color: var(--barca-yellow); /* Cambio de color de borde al hover */
+    z-index: 10;
+}
+
+/* Mantener el borde del hover si el color inicial era amarillo */
+.plan[data-color="yellow"]:hover {
+    border-color: var(--barca-red); 
+}
+
+/* Estilos de la imagen */
+.plan img {
+    width: 100%;
+    height: 290px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+    border: 2px solid var(--barca-blue);
+}
+
+.plan:hover img {
+    transform: scale(1.05);
+}
+
+/* Estilos del número distintivo (.dorsal) */
+.dorsal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--barca-red);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: 2px solid var(--white);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Dorsal alternativo (cuando la tarjeta es amarilla) */
+.plan[data-color="yellow"] .dorsal {
+    background: var(--barca-yellow);
+    color: var(--barca-dark-blue);
+    border: 2px solid var(--barca-red); 
+}
+
+/* Estilos del Nombre (h3) */
+.plan h3 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+/* Estilos del Rol/Puesto (p) */
+.plan > p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--barca-yellow);
+    margin: 1rem 0;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 3. INFO EXTRA (Contenido Oculto) */
+
+/* Info extra inicialmente oculta */
+.info-extra {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+    font-size: 1rem;
+    text-align: left;
+    margin-top: 1rem;
+    padding: 0 0.5rem;
+}
+
+/* Mostrar info al hover */
+.plan:hover .info-extra {
+    opacity: 1;
+    max-height: 250px;
+}
+
+.info-extra p {
+    margin: 0.6rem 0;
+    line-height: 1.5;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    font-size: 1rem;
+}
+
+.info-extra p:last-child {
+    border-bottom: none;
+}
+
+.info-extra strong {
+    color: var(--barca-red);
+    font-weight: 700;
+}
+
+ /* 4. EFECTO DE BRILLO (Glow) */
+
+/* Efecto de brillo en las tarjetas */
+.plan::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient( 45deg, transparent, rgba(255, 255, 255, 0.1), transparent );
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.plan:hover::after {
+    opacity: 1;
+    transform: rotate(45deg) translate(20%, 20%);
+}
+
