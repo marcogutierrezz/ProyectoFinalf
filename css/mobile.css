@@ -1,0 +1,314 @@
+/* ========== MENÚ HAMBURGUESA MODERNO (8A) ========== */
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+}
+
+.mobile-menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background: var(--barca-yellow);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    box-shadow: 0 0 10px rgba(237, 187, 0, 0.5);
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(10px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-10px);
+}
+
+/* ========== SLIDER HORIZONTAL DE CARDS EN MOBILE (8B) ========== */
+
+@media (max-width: 767px) {
+    .mobile-slider-container {
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        display: flex;
+        gap: 1rem;
+        padding: 1rem 0;
+        margin: 0 -1rem;
+        padding-left: 1rem;
+    }
+    
+    .mobile-slider-container::-webkit-scrollbar {
+        height: 8px;
+    }
+    
+    .mobile-slider-container::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
+    
+    .mobile-slider-container::-webkit-scrollbar-thumb {
+        background: linear-gradient(90deg, var(--barca-red), var(--barca-yellow));
+        border-radius: 10px;
+    }
+    
+    .mobile-slider-container .plan {
+        flex: 0 0 280px;
+        scroll-snap-align: start;
+        margin: 0;
+    }
+}
+
+/* ========== TABS/PESTAÑAS PARA ORGANIZAR CONTENIDO (8C) ========== */
+
+.tabs-container {
+    margin: 2rem 0;
+}
+
+.tabs-nav {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid rgba(237, 187, 0, 0.3);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tabs-nav::-webkit-scrollbar {
+    height: 4px;
+}
+
+.tabs-nav::-webkit-scrollbar-thumb {
+    background: var(--barca-yellow);
+    border-radius: 10px;
+}
+
+.tab-button {
+    background: rgba(20, 46, 97, 0.5);
+    border: none;
+    color: var(--white);
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    white-space: nowrap;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.tab-button::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+    background: rgba(237, 187, 0, 0.2);
+    color: var(--barca-yellow);
+}
+
+.tab-button.active {
+    background: linear-gradient(135deg, var(--barca-red), var(--barca-yellow));
+    color: var(--white);
+}
+
+.tab-button.active::after {
+    background: var(--barca-yellow);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========== BOTTOM NAVIGATION BAR EN MÓVILES (8D) ========== */
+
+.bottom-nav {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .bottom-nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(180deg, rgba(0, 45, 98, 0.98) 0%, rgba(15, 28, 79, 1) 100%);
+        padding: 0.8rem 0;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        border-top: 2px solid rgba(237, 187, 0, 0.3);
+    }
+    
+    .bottom-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.3rem;
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        padding: 0.5rem;
+        border-radius: 8px;
+        min-width: 60px;
+    }
+    
+    .bottom-nav-item .icon {
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+    }
+    
+    .bottom-nav-item:hover,
+    .bottom-nav-item.active {
+        color: var(--barca-yellow);
+        background: rgba(237, 187, 0, 0.1);
+    }
+    
+    .bottom-nav-item:hover .icon,
+    .bottom-nav-item.active .icon {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 8px rgba(237, 187, 0, 0.6));
+    }
+    
+    /* Agregar padding al body para el bottom nav */
+    body.has-bottom-nav {
+        padding-bottom: 70px;
+    }
+    
+    /* Ocultar navegación principal en móvil si se usa bottom nav */
+    body.has-bottom-nav nav {
+        display: none;
+    }
+}
+
+/* ========== MENÚ HAMBURGUESA RESPONSIVE ========== */
+
+@media (max-width: 767px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    /* Si no se usa bottom nav, mostrar menú hamburguesa */
+    body:not(.has-bottom-nav) nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: linear-gradient(180deg, rgba(0, 45, 98, 0.98) 0%, rgba(15, 28, 79, 1) 100%);
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+    }
+    
+    body:not(.has-bottom-nav) nav.active {
+        right: 0;
+    }
+    
+    body:not(.has-bottom-nav) nav ul {
+        flex-direction: column;
+        padding-top: 80px;
+        height: 100%;
+    }
+    
+    body:not(.has-bottom-nav) nav li {
+        width: 100%;
+        opacity: 0;
+        transform: translateX(50px);
+        animation: slideIn 0.3s ease forwards;
+    }
+    
+    body:not(.has-bottom-nav) nav.active li:nth-child(1) { animation-delay: 0.1s; }
+    body:not(.has-bottom-nav) nav.active li:nth-child(2) { animation-delay: 0.2s; }
+    body:not(.has-bottom-nav) nav.active li:nth-child(3) { animation-delay: 0.3s; }
+    body:not(.has-bottom-nav) nav.active li:nth-child(4) { animation-delay: 0.4s; }
+    body:not(.has-bottom-nav) nav.active li:nth-child(5) { animation-delay: 0.5s; }
+    
+    @keyframes slideIn {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    body:not(.has-bottom-nav) nav a {
+        padding: 1.2rem 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    /* Overlay oscuro cuando el menú está abierto */
+    .menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .menu-overlay.active {
+        display: block;
+        opacity: 1;
+    }
+}
+
+/* Responsive para tablets */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .tab-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
